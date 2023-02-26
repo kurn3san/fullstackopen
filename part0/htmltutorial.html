@@ -5,6 +5,10 @@
 <link
   href="https://fonts.googleapis.com/css?family=Open+Sans"
   rel="stylesheet" />
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
 </head>
 <body>
     My cat is very grumpy
@@ -33,7 +37,38 @@
       <a>Mozilla Manifesto</a>
       <a href="">Mozilla Manifesto</a>
       <a href="https://www.mozilla.org/en-US/about/manifesto/">Mozilla Manifesto</a>
+      <div class="mermaid">
+        sequenceDiagram
+          participant browser
+          participant server
+          browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+          activate server
+          server-->>browser: CODE 302 REDIRECT 
+          deactivate server
+          browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+          activate server
+          server-->>browser: CODE 200 HTML document
+          deactivate server
+          browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+          activate server
+          server-->>browser: CODE 200 the css file
+          deactivate server
+    
+          browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+          activate server
+          server-->>browser: CODE 200 the JavaScript file
+          deactivate server
+          
+          browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+          activate server
+          server-->>browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+          deactivate server
 
+          browser->>server:GET https://studies.cs.helsinki.fi/favicon.ico
+          activate server
+          server-->>browser: the icon/thumbnail of the website
+          deactivate server
 
-</body>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<head>
+    <title> Excersize 0.6</title>
+    <link href="styles/style.css" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans"
+      rel="stylesheet" />
+      <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+      </script>
+
+</head>
+<body>
+<div>
+    <h4>Qwestion</h4>
+    <p>Create a diagram depicting the situation where the user creates a new note using the single-page version of the app.</p>
+    <h4>Answer</h4>
+    <div>
+        <div class = mermaid>
+            sequenceDiagram
+            participant browser
+            participant server
+            browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+            activate server
+        </div>
+
+    </div>
+</div>
+
+
+
+
+</body>
+
+</html>
