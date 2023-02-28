@@ -4,20 +4,22 @@ const Header = (props) => {
   return(<h1>{props.course}</h1>)
     
 }
+const Part=(props) => {
+  console.log("part component called")
+  return(
+    <>
+    <p>{props.partNumber} {props.exercisesNumber}</p>
+    </>
+  )
+}
 const Content = (props) => {
   console.log("Content component called")
   console.log(props.part1,props.part2,props.part3,props.exercises1,props.exercises2,props.exercises3)
   return(
     <>
-    <p>
-        {props.part1} {props.exercises1}
-      </p>
-      <p>
-        {props.part2} {props.exercises2}
-      </p>
-      <p>
-        {props.part3} {props.exercises3}
-      </p>
+      <Part partNumber={props.part1} exercisesNumber={props.exercises1} />
+      <Part partNumber={props.part2} exercisesNumber={props.exercises2} />
+      <Part partNumber={props.part3} exercisesNumber={props.exercises3} />
     </>
   )
 
