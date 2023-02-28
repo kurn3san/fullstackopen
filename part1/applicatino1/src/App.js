@@ -1,8 +1,12 @@
 const Header = (props) => {
+  console.log("header component called")
+  console.log(props.course)
   return(<h1>{props.course}</h1>)
     
 }
 const Content = (props) => {
+  console.log("Content component called")
+  console.log(props.part1,props.part2,props.part3,props.exercises1,props.exercises2,props.exercises3)
   return(
     <>
     <p>
@@ -20,6 +24,7 @@ const Content = (props) => {
 }
 
 const Total=(props) => {
+  console.log("Total component called")
   return(
     <>
     <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
