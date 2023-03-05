@@ -35,7 +35,7 @@ const Total=(props) => {
 
 }
 
-const App = () => {
+const App12 = () => {
 
   const course = 'Half Stack application development'
   const part1 = 'Fundamentals of React'
@@ -55,7 +55,7 @@ const App = () => {
   )
 }
 
-const App1=()=>{
+const App13=()=>{
     const Header = (props) => {
     console.log("header component called only inside of component App1")
     return(<h1>{props.course}</h1>)
@@ -109,8 +109,60 @@ const Total=(props) => {
       <Content part1={part1} part2={part2} part3={part3} />
       <Total part1={part1} part2={part2} part3={part3}/>
     </div>
-    
+
   )
 }
 
-export default App1
+const App14=()=>{
+  console.log("this is for the exercise 1.4...")
+  const Header = (props) => {
+    console.log("header component called only inside of component App1")
+    return(<h1>{props.course}</h1>)
+  }
+  const Part=(props)=>{
+    console.log("Component Part was called with props")
+    console.log(props)
+    return(
+      <p>
+        {props.part.name} {props.part.exercises}
+      </p>
+    )
+  }
+  const Content=(props)=>{
+    return(
+      <>
+      <Part   part={props.part1}/>
+      <Part   part={props.part2}/>
+      <Part   part={props.part3}/>
+      </>
+    )
+  }
+  
+const Total=(props) => {
+  console.log("Total component called")
+  return(
+    <>
+    <p>Number of exercises {props.part1.exercises + props.part2.exercises + props.part3.exercises}</p>
+    </>
+  )
+
+}
+  
+  const course = 'Half Stack application development'
+  const parts = [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7
+    },
+    {
+      name: 'State of a component',
+      exercises: 14
+    }
+  ]
+}
+
+export default App14
