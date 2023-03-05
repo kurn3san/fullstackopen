@@ -138,30 +138,41 @@ const App14=()=>{
   }
   const Part=(props)=>{
     console.log("Component Part was called with props")
-    console.log(props)
+    console.log(props.partThing)
     return(
       <p>
-        {props.name} {props.exercises}
+        {props.partThing.name} {props.partThing.exercises}
       </p>
     )
   }
+  const Custo=(props)=>{
+    console.log(props.thing[0])
+    return(<>
+              <div>
+                <p>this is the custo element</p>
+                
+              </div>
+    </>)
+  }
   const Content=(props)=>{
-    console.log(props)
-    console.log(props.part1)
+    console.log(props.thing[0])
     return(
       <>
-      <Part   part={props[0]}/>
-      <Part   part={props[1]}/>
-      <Part   part={props[2]}/>
+        <Part partThing={props.thing[0]}/>
+
+        <Part partThing={props.thing[1]}/>
+        <Part partThing={props.thing[2]}/>
+
       </>
     )
+
   }
   
 const Total=(props) => {
   console.log("Total component called")
   return(
     <>
-    <p>Number of exercises {props.exercises + props.exercises + props.exercises}</p>
+    <p>Number of exercises {props.TotalThing[0].exercises + props.TotalThing[1].exercises + props.TotalThing[2].exercises}</p>
     </>
   )
 
@@ -171,9 +182,8 @@ const Total=(props) => {
 
   return (<>
       <Header course={course}/>
-
-      <Content part1={parts[0]} part2={parts[1]} part3={parts[2]} />
-      <Total part1={parts[0]} part2={parts[1]} part3={parts[2]}/>
+      <Content thing={parts}/>
+      <Total TotalThing={parts}/>      
   </>)
 }
 
