@@ -6,6 +6,7 @@ const Header = (props) => {
 }
 const Part=(props) => {
   console.log("part component called")
+  
   return(
     <>
     <p>{props.partNumber} {props.exercisesNumber}</p>
@@ -114,40 +115,7 @@ const Total=(props) => {
 }
 
 const App14=()=>{
-  console.log("this is for the exercise 1.4...")
-  const Header = (props) => {
-    console.log("header component called only inside of component App1")
-    return(<h1>{props.course}</h1>)
-  }
-  const Part=(props)=>{
-    console.log("Component Part was called with props")
-    console.log(props)
-    return(
-      <p>
-        {props.part.name} {props.part.exercises}
-      </p>
-    )
-  }
-  const Content=(props)=>{
-    return(
-      <>
-      <Part   part={props.part1}/>
-      <Part   part={props.part2}/>
-      <Part   part={props.part3}/>
-      </>
-    )
-  }
-  
-const Total=(props) => {
-  console.log("Total component called")
-  return(
-    <>
-    <p>Number of exercises {props.part1.exercises + props.part2.exercises + props.part3.exercises}</p>
-    </>
-  )
 
-}
-  
   const course = 'Half Stack application development'
   const parts = [
     {
@@ -163,6 +131,50 @@ const Total=(props) => {
       exercises: 14
     }
   ]
+  console.log("this is for the exercise 1.4...")
+  const Header = (props) => {
+    console.log("header component called only inside of component App1")
+    return(<h1>{props.course}</h1>)
+  }
+  const Part=(props)=>{
+    console.log("Component Part was called with props")
+    console.log(props)
+    return(
+      <p>
+        {props.name} {props.exercises}
+      </p>
+    )
+  }
+  const Content=(props)=>{
+    console.log(props)
+    console.log(props.part1)
+    return(
+      <>
+      <Part   part={props[0]}/>
+      <Part   part={props[1]}/>
+      <Part   part={props[2]}/>
+      </>
+    )
+  }
+  
+const Total=(props) => {
+  console.log("Total component called")
+  return(
+    <>
+    <p>Number of exercises {props.exercises + props.exercises + props.exercises}</p>
+    </>
+  )
+
+}
+  
+  
+
+  return (<>
+      <Header course={course}/>
+
+      <Content part1={parts[0]} part2={parts[1]} part3={parts[2]} />
+      <Total part1={parts[0]} part2={parts[1]} part3={parts[2]}/>
+  </>)
 }
 
 export default App14
