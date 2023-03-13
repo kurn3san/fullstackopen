@@ -111,18 +111,10 @@ const App5 = () => {
     </div>
   )
 }
-const Display = (props) => {
-  return (
-    <div>{props.counter}</div>
-  )
-}
-const Button = (props) => {
-  return (
-    <button onClick={props.handleClick}>
-      {props.text}
-    </button>
-  )
-}
+const Display=({counter})=><div>{counter}</div>
+  
+const Button=({handleClick,text})=><button onClick={handleClick}>{text}</button>
+
 
 const App = () => {
   const [ counter, setCounter ] = useState(0)
@@ -151,7 +143,7 @@ const App = () => {
     <div>
       <>
       <Display counter={counter}/>
-      
+
       <Button
         handleClick={increaseByOne}
         text='plus'
@@ -161,6 +153,7 @@ const App = () => {
         handleClick={decreaseByOne}
         text='minus'
       />  
+      <br/>
 
       <Button
       handleClick={divideByTwo}
@@ -169,6 +162,7 @@ const App = () => {
 
       </>
       <>
+      <br/>
       <Button
         handleClick={setToZero}
         text='zero'
