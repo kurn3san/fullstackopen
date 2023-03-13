@@ -1,4 +1,4 @@
-
+import { useState } from 'react'
 
 const App1 = () => {
   const Hello = (props) => {
@@ -53,12 +53,64 @@ const App2=()=>{
   )
 }
 
-const App = (props) => {
-  console.log(props)
-  const {counter} = props
+
+const App3 = () => {
+  const [ counter, setCounter ] = useState(0)
+console.log(counter)
+//console.log(setCounter)
+  setTimeout(
+    () => setCounter(counter +1),
+    1000
+  )
+  
+  console.log('rendering...', counter)
+
   return (
     <div>{counter}</div>
   )
 }
+const App4 = () => {
+  const [ counter, setCounter ] = useState(0)
+
+  const increaseByOne = () => setCounter(counter + 1)
+  
+  const setToZero = () => setCounter(0)
+
+  return (
+    <div>
+      <div>{counter}</div>
+      <button onClick={increaseByOne}>
+        plus
+      </button>
+      <button onClick={setToZero}>
+        zero
+      </button>
+    </div>
+  )
+}
+const Display = (props) => {
+  return (
+    <div>{props.counter}</div>
+  )
+}
+const App = () => {
+  const [ counter, setCounter ] = useState(0) // this is called hooking
+
+  const increaseByOne = () => setCounter(counter + 1)
+  const setToZero = () => setCounter(0)
+
+  return (
+    <div>
+      <Display counter={counter}/>
+      <button onClick={increaseByOne}>
+        plus
+      </button>
+      <button onClick={setToZero}> 
+        zero
+      </button>
+    </div>
+  )
+}
+
 
 export default App;
